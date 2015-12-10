@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210065304) do
+ActiveRecord::Schema.define(version: 20151210071446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boxer_profiles", force: :cascade do |t|
+    t.text     "gender"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "boxer_profiles", ["gender"], name: "index_boxer_profiles_on_gender", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.text     "country"
