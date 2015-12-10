@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210071746) do
+ActiveRecord::Schema.define(version: 20151210072537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,5 +81,13 @@ ActiveRecord::Schema.define(version: 20151210071746) do
 
   add_index "tourist_spots", ["city"], name: "index_tourist_spots_on_city", using: :btree
   add_index "tourist_spots", ["country", "city"], name: "index_tourist_spots_on_country_and_city", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.boolean  "registered"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "users", ["registered"], name: "index_users_on_registered", using: :btree
 
 end
