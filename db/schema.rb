@@ -24,8 +24,11 @@ ActiveRecord::Schema.define(version: 20151210064024) do
 
   create_table "jobs", force: :cascade do |t|
     t.integer  "id_without_index"
+    t.integer  "company_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
+
+  add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
 
 end
